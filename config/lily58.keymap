@@ -11,6 +11,16 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/rgb.h>
+/ {
+    led_strip {
+        compatible = "worldsemi,ws2812-spi";
+        label = "LED Strip";
+        chain-length = <12>;  // Replace with the actual number of LEDs on your Lily58 Pro
+        spi = <&spi1>;
+        spi-max-frequency = <2400000>;
+        pixel-order = "grb";
+    };
+};
 
 / {
     // Combo keys are a way to combine multiple keypresses to output a different key.

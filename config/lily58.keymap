@@ -24,9 +24,24 @@
             bindings = <&bt BT_CLR>; // activate clear bluetooth bindings for current channel
         };
 
-        gamenow {
-            bindings = <&tog 0>;
-            key-positions = <21 22 23>;
+        mouseclick {
+            bindings = <&mkp MB1>;
+            key-positions = <6 7>;
+        };
+
+        rightclick {
+            bindings = <&mkp RCLK>;
+            key-positions = <18 19>;
+        };
+
+        scrollup {
+            bindings = <&kp K_SCROLL_UP>;
+            key-positions = <6 18>;
+        };
+
+        scrolldown {
+            bindings = <&kp K_SCROLL_DOWN>;
+            key-positions = <19 7>;
         };
     };
 
@@ -42,11 +57,11 @@
             //                        | ALT  | GUI  | LOWER|  SPACE |  | BSPC  | ENTER| RAISE | CTRL  |
 
             bindings = <
-&kp GRAVE      &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                      &kp N6  &kp N7     &kp N8            &kp N9   &kp N0    &kp MINUS
-&kp TAB        &kp Q   &kp W   &kp E     &kp R      &kp T                                       &kp Y   &kp U      &kp I             &kp O    &kp P     &kp BACKSPACE
-&mt LCTRL ESC  &kp A   &kp S   &kp D     &kp F      &kp G                                       &kp H   &kp J      &kp K             &kp L    &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z   &kp X   &kp C     &kp V      &kp B   &rgb_ug RGB_TOG    &rgb_ug RGB_EFF  &kp N   &kp M      &kp COMMA         &kp DOT  &kp FSLH  &mt RSHFT CAPS
-                               &kp LALT  &kp LMETA  &mo 2   &kp SPACE          &kp ENTER        &mo 1   &mkp RCLK  &kp LEFT_CONTROL
+&kp GRAVE      &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                                         &kp N6  &kp N7  &kp N8            &kp N9   &kp N0    &kp MINUS
+&kp TAB        &kp Q   &kp W   &kp E     &kp R      &kp T                                          &kp Y   &kp U   &kp I             &kp O    &kp P     &kp BACKSPACE
+&mt LCTRL ESC  &kp A   &kp S   &kp D     &kp F      &kp G                                          &kp H   &kp J   &kp K             &kp L    &kp SEMI  &kp SQT
+&kp LSHFT      &kp Z   &kp X   &kp C     &kp V      &kp B   &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N   &kp M   &kp COMMA         &kp DOT  &kp FSLH  &mt RSHFT CAPS
+                               &kp LALT  &kp LMETA  &mo 2   &kp SPACE           &kp ENTER          &mo 1   &mo 3   &kp LEFT_CONTROL
             >;
         };
 
@@ -59,11 +74,11 @@
             //                       |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&kp F12        &kp F1  &kp F2           &kp F3           &kp F4           &kp F5                             &kp F6       &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&kp GRAVE      &kp N1  &kp N2           &kp N3           &kp N4           &kp N5                             &kp N6       &kp N7     &kp N8     &kp N9     &kp N0    &kp MINUS
-&mt LCTRL ESC  &trans  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &bl BL_TOG       &rgb_ug RGB_TOG                    &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &trans    &trans
-&kp LSHIFT     &trans  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp RIGHT_SHIFT
-                                        &trans           &trans           &trans           &trans    &trans  &trans       &trans     &trans
+&kp F12        &kp F1  &kp F2           &kp F3           &kp F4           &kp F5                                                  &kp F6       &kp F7     &kp F8     &kp F9           &kp F10        &kp F11
+&kp GRAVE      &kp N1  &kp N2           &kp N3           &kp N4           &kp N5                                                  &kp N6       &kp N7     &kp N8     &kp N9           &kp N0         &kp MINUS
+&mt LCTRL ESC  &trans  &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &bl BL_TOG       &rgb_ug RGB_TOG                                         &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT        &trans         &trans
+&kp LSHIFT     &trans  &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp KP_ASTERISK  &kp KP_DIVIDE  &kp RIGHT_SHIFT
+                                        &trans           &trans           &trans           &trans              &trans             &trans       &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
@@ -86,6 +101,16 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
